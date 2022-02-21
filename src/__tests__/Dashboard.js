@@ -233,7 +233,7 @@ describe('Given I am connected as Admin and I am on Dashboard page and I clicked
       eye.addEventListener('click', handleClickIconEye)
       userEvent.click(eye)
       expect(handleClickIconEye).toHaveBeenCalled()
-
+      
       const modale = screen.getByTestId('modaleFileAdmin')
       expect(modale).toBeTruthy()
     })

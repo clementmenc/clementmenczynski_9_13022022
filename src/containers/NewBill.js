@@ -20,6 +20,16 @@ export default class NewBill {
     const file = this.document.querySelector(`input[data-testid="file"]`).files[0]
     const filePath = e.target.value.split(/\\/g)
     const fileName = filePath[filePath.length-1]
+    const fileExtension = file.type.split('/')[1]
+    const extensionsAccepted = ['png', 'jpeg', 'jpg']
+
+    if (!extensionsAccepted.includes(fileExtension)) {
+      this.document.getElementById('btn-send-bill').disabled = true;
+      return
+    }
+
+    this.document.getElementById('btn-send-bill').disabled = false;
+
     const formData = new FormData()
     const email = JSON.parse(localStorage.getItem("user")).email
     formData.append('file', file)
