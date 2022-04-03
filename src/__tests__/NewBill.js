@@ -161,7 +161,8 @@ describe("Given I am connected as an employee", () => {
       const result = await store.bills().create(newBill);
 
       expect(spyStore).toHaveBeenCalled();
-      expect(result).toEqual({"fileUrl": "https://localhost:3456/images/test.jpg", "key": "1234"});
+      expect(result.length).toEqual(expectedBillsCount);
+
     })
   })
 
