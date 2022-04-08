@@ -24,11 +24,11 @@ export default class NewBill {
     const extensionsAccepted = ['png', 'jpeg', 'jpg']
 
     if (!extensionsAccepted.includes(fileExtension)) {
-      this.document.getElementById('btn-send-bill').disabled = true;
+      this.document.querySelector(`input[data-testid="file"]`).value = ''
+      alert('Veuiller choisir un fichier au format png, jpeg ou jpg.')
       return
     }
 
-    this.document.getElementById('btn-send-bill').disabled = false;
 
     const formData = new FormData()
     const email = JSON.parse(localStorage.getItem("user")).email
